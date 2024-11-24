@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cálculo de Áreas</title>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="icon" href="Img/Logo.jpg" type="image/x-icon">
+	<link href="CSS/styles.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+	<div id="app" class="container mt-4">
+		<h1 class="text-center mb-4">Cálculo de Áreas</h1>
+		<div class="row">
+            <!-- Componente para calcular el área de un triángulo -->
+			<area-triangulo class="col-md-4"></area-triangulo>
+
+            <!-- Componente para calcular el área de un cuadrado -->
+			<area-cuadrado class="col-md-4"></area-cuadrado>
+
+             <!-- Componente para calcular el área de un círculo -->
+			<area-circulo class="col-md-4"></area-circulo>
+		</div>
+	</div>
+	<script src="componentes/areas.js"></script>
+</body>
+</html>
