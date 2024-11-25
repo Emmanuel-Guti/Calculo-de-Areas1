@@ -1,6 +1,5 @@
 const app = Vue.createApp({});
 
-// Componente para calcular el área de un triángulo
 app.component('area-triangulo', {
     data() {
         return {
@@ -11,7 +10,19 @@ app.component('area-triangulo', {
     },
     methods: {
         calcularArea() {
-            this.area = (this.base * this.altura) / 2;
+            document.getElementById('calculando').style.display = 'block'; 
+            setTimeout(() => {
+                this.area = (this.base * this.altura) / 2;
+                this.mostrarResultado();
+            }, 500);
+        },
+        mostrarResultado() {
+            const resultadoDiv = document.getElementById('resultado');
+            const resultadoText = document.getElementById('resultado-text');
+            
+            resultadoText.innerHTML = `El área del Triángulo es: ${this.area.toFixed(2)} unidades cuadradas.`;
+            resultadoDiv.classList.add('mostrar');
+            document.getElementById('calculando').style.display = 'none';
         }
     },
     template: `
@@ -20,12 +31,10 @@ app.component('area-triangulo', {
             <input type="number" v-model="base" placeholder="Base" />
             <input type="number" v-model="altura" placeholder="Altura" />
             <button @click="calcularArea">Calcular Área</button>
-            <p v-if="area !== null">Área: {{ area }}</p>
         </div>
     `
 });
 
-// Componente para calcular el área de un cuadrado
 app.component('area-cuadrado', {
     data() {
         return {
@@ -35,7 +44,19 @@ app.component('area-cuadrado', {
     },
     methods: {
         calcularArea() {
-            this.area = this.lado ** 2;
+            document.getElementById('calculando').style.display = 'block'; // Muestra "calculando..."
+            setTimeout(() => {
+                this.area = this.lado ** 2;
+                this.mostrarResultado();
+            }, 500);
+        },
+        mostrarResultado() {
+            const resultadoDiv = document.getElementById('resultado');
+            const resultadoText = document.getElementById('resultado-text');
+            
+            resultadoText.innerHTML = `El área del Cuadrado es: ${this.area.toFixed(2)} unidades cuadradas.`;
+            resultadoDiv.classList.add('mostrar');
+            document.getElementById('calculando').style.display = 'none';
         }
     },
     template: `
@@ -43,12 +64,10 @@ app.component('area-cuadrado', {
             <h3>Cuadrado</h3>
             <input type="number" v-model="lado" placeholder="Lado" />
             <button @click="calcularArea">Calcular Área</button>
-            <p v-if="area !== null">Área: {{ area }}</p>
         </div>
     `
 });
 
-// Componente para calcular el área de un círculo
 app.component('area-circulo', {
     data() {
         return {
@@ -58,7 +77,19 @@ app.component('area-circulo', {
     },
     methods: {
         calcularArea() {
-            this.area = Math.PI * (this.radio ** 2);
+            document.getElementById('calculando').style.display = 'block'; 
+            setTimeout(() => {
+                this.area = Math.PI * (this.radio ** 2);
+                this.mostrarResultado();
+            }, 500);
+        },
+        mostrarResultado() {
+            const resultadoDiv = document.getElementById('resultado');
+            const resultadoText = document.getElementById('resultado-text');
+            
+            resultadoText.innerHTML = `El área del Círculo es: ${this.area.toFixed(2)} unidades cuadradas.`;
+            resultadoDiv.classList.add('mostrar');
+            document.getElementById('calculando').style.display = 'none';
         }
     },
     template: `
@@ -66,9 +97,28 @@ app.component('area-circulo', {
             <h3>Círculo</h3>
             <input type="number" v-model="radio" placeholder="Radio" />
             <button @click="calcularArea">Calcular Área</button>
-            <p v-if="area !== null">Área: {{ area.toFixed(2) }}</p>
         </div>
     `
 });
 
 app.mount('#app');
+
+
+function mostrarResultado(area) {
+    const resultadoDiv = document.getElementById('resultado');
+    const resultadoText = document.getElementById('resultado-text');
+    
+    resultadoText.innerHTML = `El área es: ${area.toFixed(2)} unidades cuadradas.`;
+    
+    resultadoDiv.classList.add('mostrar');
+    
+    document.getElementById('calculando').style.display = 'none';
+}
+
+function mostrarError() {
+    const resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.classList.add('error');
+    resultadoDiv.innerHTML = "¡Error! Los valores son inválidos.";
+    resultadoDiv.classList.add('mostrar');
+    document.getElementById('calculando').style.display = 'none';
+}
