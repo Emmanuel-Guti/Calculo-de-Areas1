@@ -6,8 +6,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: #121212; /* Fondo oscuro */
-    color: #f1f1f1; /* Texto claro para contraste */
+    background: #121212; 
+    color: #f1f1f1; 
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -36,7 +36,7 @@ h1 {
 }
 
 .card {
-    background-color: #1e1e1e; /* Fondo de tarjeta oscuro */
+    background-color: #1e1e1e;
     border-radius: 15px;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
     padding: 20px;
