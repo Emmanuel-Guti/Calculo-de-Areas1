@@ -12,18 +12,20 @@
     <link href="CSS/styles.css" rel="stylesheet">
 </head>
 <body>
-    <div id="app" class="container mt-4">
+      <div id="app" class="container mt-4">
         <h1 class="text-center mb-4">Cálculo de Áreas</h1>
         <div class="row">
             <area-triangulo class="col-md-4"></area-triangulo>
             <area-cuadrado class="col-md-4"></area-cuadrado>
             <area-circulo class="col-md-4"></area-circulo>
         </div>
-        <div id="resultado" class="resultado">
-            <p id="resultado-text">Resultado aquí</p>
-        </div>
-        <div id="calculando" class="calculando">
-            <p>Calculando...</p>
+        <div id="resultado" class="resultado mt-4">
+            <br>
+            <br>            
+            <h4>Resultados:</h4>
+            <ul>
+                <li v-for="resultado in resultados" :key="resultado">{{ resultado }}</li>
+            </ul>
         </div>
     </div>
     <script src="componentes/areas.js"></script>
